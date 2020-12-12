@@ -17,85 +17,73 @@ import br.com.waldirep.sistemapesquisa.entiteis.enums.Platform;
 
 @Entity
 @Table(name = "tb_game")
-public class Game implements Serializable{
+public class Game implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	
-	private String tittle;
-	
+
+	private String title;
+
 	private Platform platform;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "genre_id") // Chave estrangeira que referencia o campo id da classe Genre
 	private Genre genre;
-	
+
 	@OneToMany(mappedBy = "game")
 	private List<Record> records = new ArrayList<>();
-	
-	
+
 	public Game() {
-		
+
 	}
 
-
-	public Game(Long id, String tittle, Platform platform, Genre genre) {
+	public Game(Long id, String title, Platform platform, Genre genre, List<Record> records) {
 		super();
 		this.id = id;
-		this.tittle = tittle;
+		this.title = title;
 		this.platform = platform;
 		this.genre = genre;
+		this.records = records;
 	}
-
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-	public String getTittle() {
-		return tittle;
+	public String getTitle() {
+		return title;
 	}
 
-
-	public void setTittle(String tittle) {
-		this.tittle = tittle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
-
 
 	public Platform getPlatform() {
 		return platform;
 	}
 
-
 	public void setPlatform(Platform platform) {
 		this.platform = platform;
 	}
-
 
 	public Genre getGenre() {
 		return genre;
 	}
 
-
 	public void setGenre(Genre genre) {
 		this.genre = genre;
 	}
 
-
 	public List<Record> getRecords() {
 		return records;
 	}
-	
-	
-	
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -103,7 +91,6 @@ public class Game implements Serializable{
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -121,8 +108,5 @@ public class Game implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
 
 }

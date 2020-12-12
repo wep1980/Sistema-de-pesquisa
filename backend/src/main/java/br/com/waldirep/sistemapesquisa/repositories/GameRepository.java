@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 import br.com.waldirep.sistemapesquisa.entiteis.Game;
 
+
+
 @Repository
 public interface GameRepository extends JpaRepository<Game, Long>{
 

@@ -1,8 +1,12 @@
 import React from 'react';
 import './styles.css';
-import { ReactComponent as ArrowIcon } from '../../assets/arrow.svg'; // Tratando a imagem como componente e acessando a imagem da logo
+
+// Tratando a imagem como componente e acessando a imagem da logo
+import { ReactComponent as ArrowIcon } from '../../assets/arrow.svg'; 
 import { ReactComponent as GamerImage } from '../../assets/gamer.svg'; 
-import { Link } from 'react-router-dom'; // Componente para conversar com as rotas definidas em Routes.tsx
+
+// Componente para conversar com as rotas definidas em Routes.tsx
+import { Link } from 'react-router-dom'; 
 
 const Home = () => (
     /*className -> chama as classes do css.

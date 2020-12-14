@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css'
-import {RecordsResponse} from './types'
-import { formatDate } from './helpers'
-import Pagination from './Pagination'
+import {RecordsResponse} from './types';
+import { formatDate } from './helpers';
+import Pagination from './Pagination';
+import Filters from '../../components/Filters';
 
 /* Instalado com */
 import axios from 'axios';
@@ -39,6 +40,7 @@ const Records = () => {
 
    return (
       <div className="page-container">
+        <Filters link="/charts" linkText="VER GRÁFICO"></Filters>
          <table className="records-table" cellPadding="0" cellSpacing="0">
             <thead>
                <tr>

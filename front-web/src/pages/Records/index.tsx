@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './styles.css'
 import {RecordsResponse} from './types'
 import { formatDate } from './helpers'
+import Pagination from './Pagination'
 
 /* Instalado com */
 import axios from 'axios';
@@ -15,7 +16,7 @@ const BASE_URL = 'http://localhost:8080';
 const Records = () => {
 
    const [recordsResponse, setRecordsResponse] = useState<RecordsResponse>();
-   console.log(recordsResponse);
+   const [activePage, setActivePage] = useState(0);
 
    /**
     * Fazendo integração com API
@@ -23,9 +24,18 @@ const Records = () => {
     *  <tr key={record.id}> -> Dentro do ReactJS todo componente de lista tem que ter um key
     */
    useEffect(() => {
-      axios.get(`${BASE_URL}/records?linesPerPage=12`).then(response => setRecordsResponse(response.data));
+      axios.get(`${BASE_URL}/records?linesPerPage=12&page=${activePage}`).then(response => setRecordsResponse(response.data));
       console.log('Componente iniciado');
-   }, []);
+   }, [activePage]);
+
+
+   /**
+    * 
+    * @param index Metodo que altera a pagina
+    */
+   const handlePageChange = (index: number) => {
+        setActivePage(index)
+   }
 
    return (
       <div className="page-container">
@@ -54,7 +64,10 @@ const Records = () => {
                ))}
             </tbody>
          </table>
-   
+         <Pagination 
+             activePage={activePage}
+             goToPage={handlePageChange}
+             totalPages={recordsResponse?.totalPages}/>
       </div>
    );
 }

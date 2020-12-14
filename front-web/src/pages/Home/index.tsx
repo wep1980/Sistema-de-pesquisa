@@ -2,9 +2,11 @@ import React from 'react';
 import './styles.css';
 import { ReactComponent as ArrowIcon } from '../../assets/arrow.svg'; // Tratando a imagem como componente e acessando a imagem da logo
 import { ReactComponent as GamerImage } from '../../assets/gamer.svg'; 
+import { Link } from 'react-router-dom'; // Componente para conversar com as rotas definidas em Routes.tsx
 
 const Home = () => (
-    // className -> chama as classes do css
+    /*className -> chama as classes do css.
+    <Link to="/records"> -> Criando link e derecionando para outra pagina*/
     <div className="home-container">
         <div className="home-text">
             <h1 className="home-text-title">
@@ -13,14 +15,16 @@ const Home = () => (
             <h3 className="home-text-subtitle">
                 Clique no botão abaixo e saiba quais são os jogos que os gamers estão escolhendo!
             </h3>
-            <div className="home-actions">
-                <button className="home-btn">
-                    QUERO SABER QUAIS SÃO
-                </button>
-                <div className="home-btn-icon">
-                   <ArrowIcon/>
+            <Link to="/records">
+                <div className="home-actions">
+                    <button className="home-btn">
+                        QUERO SABER QUAIS SÃO
+                    </button>
+                    <div className="home-btn-icon">
+                    <ArrowIcon/>
+                    </div>
                 </div>
-            </div>
+            </Link>
         </div>
         <GamerImage className="home-image"/>
     </div>

@@ -2,6 +2,8 @@ import React from 'react';
 import { Text, StyleSheet, View, Image , Alert } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { FontAwesome5 as Icon} from '@expo/vector-icons';
+import Header from '../../components/Header';
+import { useNavigation } from '@react-navigation/native';
 
 /**
  * Home e um componente função
@@ -9,12 +11,16 @@ import { FontAwesome5 as Icon} from '@expo/vector-icons';
  */
 const Home = () => {
 
+    // Função que permite navegar entre as rotas
+    const navigation = useNavigation();
+
     const handleOnPress = () => {
-        Alert.alert('clicou!');
+        navigation.navigate('CreateRecord');
     }
 
     return (
       <>
+      <Header />
         <View style={styles.container}>
             <Image 
                source={require('../../assets/gamer.png')}

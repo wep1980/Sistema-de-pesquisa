@@ -8,7 +8,7 @@ import Filters from '../../components/Filters';
 /* Instalado com */
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:8080';
+const BASE_URL = 'https://wepdev-sistema-pedidos.herokuapp.com';
 
 /**<thead> -> Cabeçalho da tabela
  * <tbody> -> Corpo do tabela

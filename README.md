@@ -5,7 +5,7 @@
 
 https://wepdev-sistema-pedidos.netlify.app/
 
-Sistema de Pesquisa é uma aplicação full stack web e mobile construída na Semana DevSuperior, evento organizado pela https://devsuperior.com
+Sistema de Pesquisa é uma aplicação full stack web e mobile construída com Java e Spring boot na Semana DevSuperior, evento organizado pela https://devsuperior.com
 
 A aplicação consiste em uma pesquisa de preferência de games, onde os dados são coletados no app mobile, e depois são listados no app web, que também apresenta um dashboard com gráficos baseados nestes dados.
 
